@@ -3,10 +3,12 @@ package mailing;
 public class MailInfo {
     private Client client;
     private int mailCode;
+    private MailType choosenType;
 
-    public MailInfo(Client client, int mailCode) {
+    public MailInfo(Client client, int mailCode, MailTypesContainter mailTypes) {
         this.client = client;
         this.mailCode = mailCode;
+        this.choosenType = mailTypes.getType(mailCode);
     }
 
     public Client getClient() {
@@ -26,6 +28,6 @@ public class MailInfo {
     }
 
     public String generateMessage(){
-        return "";
+        return String.format("Dear %s  %s %s", client.getSex().toString(), client.getName(), choosenType.getText());
     }
 }

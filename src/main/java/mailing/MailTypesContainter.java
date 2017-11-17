@@ -17,6 +17,10 @@ public class MailTypesContainter {
         return mailTypes;
     }
 
+    public MailType getType(int index){
+        return mailTypes.get(index);
+    }
+
     public void addType(String type, java.lang.String text){
         MailType newMailType = new MailType(type, text);
         mailTypes.add(newMailType);
